@@ -1,0 +1,41 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.0'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.chatting.api'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	//JPA 의존성 추가
+	//스프링 부트용 Spring Data Jpa 추상화 라이브러리
+	//스프링 부트 버전에 맞춰 자동으로 JPA관련 라이브러리들의 버전을 관리해줌
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.6.2'
+
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+
