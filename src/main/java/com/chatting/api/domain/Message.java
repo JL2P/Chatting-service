@@ -18,8 +18,9 @@ public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Long roomId;
     public enum MessageType {
-        ENTER, TALK
+        ENTER, TALK //ENTER:입장, TALK: 채팅
     }
     private MessageType type; // 메시지 타입
     private String username;
