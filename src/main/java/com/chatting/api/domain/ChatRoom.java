@@ -3,6 +3,7 @@ package com.chatting.api.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Builder
 @AllArgsConstructor
@@ -17,4 +18,12 @@ public class ChatRoom {
     private Long id;
     private String name;
 
+    public static ChatRoom create(Long id, String name) {
+        ChatRoom chatRoom = new ChatRoom();
+        chatRoom.id = id;
+        chatRoom.name = name;
+        return chatRoom;
+    }
+
 }
+
